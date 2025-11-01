@@ -156,11 +156,52 @@ ol {
   width: auto;
   margin: auto;
 }
-.popupVideo{
+.popupVideo {
+  display: block;
+  width: 100%;
   max-width: 100%;
-  width: 500px;
-  height: 326px;
-  margin: auto;
+  box-sizing: border-box;
+  border: 0;
+  /* modern tarayıcılar için oran sabitleyici */
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
+
+.popupText {
+  flex: 1 1 380px;            /* yer açar, gerektiğinde daralır */
+  min-width: 260px;
+  max-width: 760px;
+  box-sizing: border-box;
+}
+
+/* Başlık hizalama vs */
+.popupText h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  #alotofbox-dialog {
+    flex-direction: column;
+    padding: 12px;
+  }
+  .popupMedia,
+  .popupText {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .popupText {
+    padding-top: 8px;
+  }
+  .popupText h2 { text-align: center; }
+}
+
+
+.popupVideo[src$=".gif"],
+.popupVideo[src$=".png"],
+.popupVideo[src$=".jpg"],
+.popupVideo[src$=".jpeg"] {
+  object-fit: cover;
+  height: auto;
 }
 
 .portfolioPicture{
